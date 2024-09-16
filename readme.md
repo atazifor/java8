@@ -147,3 +147,19 @@ public interface IPhone {
   }
 }
 ```
+
+## Streams
+A streams is a sequence of elements usually from a collection. Streams perform a series of operations on this
+sequence of elements.
+
+Collection may be list, array, set, file or any sequence of elements.
+
+Operations could be:
+- Non-terminal: 
+  - perform some action on the streams and return another streams with modified elements
+  - leaves the streams "open"
+- Terminal: 
+  - closes the streams
+  - returns a single result
+  - no further action can be performed on the streams (since it's closed)
+  - an IllegalStateException is thrown if you try to perform other non-terminal operations on a closed streams.

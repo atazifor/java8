@@ -1,5 +1,6 @@
 package method.defaultmethod;
 
+
 public class IPhone8Plus implements IPhone{
     @Override
     public String getColor() {
