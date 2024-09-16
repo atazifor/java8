@@ -76,3 +76,26 @@ Hence we could do:
 A = (String s) -> {System.out.println("Test A")};
 B = (String s) -> {System.out.println("Test B")};
 ```
+
+## Interface Static Methods
+Starting in Java 8, static methods can be added to interfaces.
+```java
+public interface StaticDemo {
+    static String normalize(String s) {
+        System.out.println("Invoked Static Interface Method");
+        return s == null ? "Empty String" : s;
+    }
+
+    void print(String s);
+}
+```
+### Notes:
+- static methods must have a body
+- to use a static method, use the name of the Interface dot static-method-name
+
+### Why Static Methods
+- think of them like utility or helper methods related to the interface functionality
+  - for example `Stream.concat` in the Stream interface to concatenate 2 streams
+  
+- static methods are used to create instances of the interface type
+  - for example `List.of`, `Stream.of`
