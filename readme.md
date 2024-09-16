@@ -99,3 +99,51 @@ public interface StaticDemo {
   
 - static methods are used to create instances of the interface type
   - for example `List.of`, `Stream.of`
+
+## Default Methods
+Starting in Java 8, interfaces could have method implementations preceded with the `default` keyword.
+And only interfaces can have default methods, not classes.
+
+Default methods provide a way for new methods to 
+be added to an interface in the future, 
+without breaking the contract of implementation 
+classes that clearly don't have this new method implemented.
+
+Imagine we have the following interface.
+```java
+public interface IPhone {
+   // abstract method
+   public String getColor();
+   // default method
+   public default String printBrand() {
+      System.out.print("Apple");
+   }
+}
+```
+And the following implementation:
+
+```java
+public class IPhone8Plus implements IPhone{
+    @Override
+    public String getColor() {
+        return "Gray";
+    }
+}
+```
+
+If in the future we decide to add another method to the interface `IPhone`
+we shall add it as a `default` method so that `IPhone8Plus` will continue to compile
+```java
+public interface IPhone {
+   // abstract method
+   public String getColor();
+   // default method
+   public default String printBrand() {
+      System.out.print("Apple");
+   }
+  // default method
+  public default String model() {
+    System.out.print("Mini");
+  }
+}
+```
